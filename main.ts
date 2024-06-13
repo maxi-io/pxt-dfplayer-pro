@@ -41,7 +41,7 @@ namespace dfplayerpro {
 
     function sendCMD(CMD: string): void {
         if (!isConnected) {
-            connect(SerialPin.P0, SerialPin.P1)
+            connect(SerialPin.P15, SerialPin.P13)
         }
         serial.writeLine(CMD)
     }
@@ -53,7 +53,7 @@ namespace dfplayerpro {
      */
     //% blockId="dfplayerpro_connect" block="connect to DFPlayer Pro, RX:%pinRX|TX:%pinTX"
     //% weight=100 blockGap=20
-    export function connect(pinRX: SerialPin = SerialPin.P0, pinTX: SerialPin = SerialPin.P1): void {
+    export function connect(pinRX: SerialPin = SerialPin.P15, pinTX: SerialPin = SerialPin.P13): void {
         serial.redirect(pinRX, pinTX, BaudRate.BaudRate115200)
         isConnected = true
         basic.pause(100)
